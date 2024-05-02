@@ -1,0 +1,38 @@
+{
+  "name": "ki",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.18.0",
+    "yarn": ">=1.22.19"
+  },
+  "scripts": {
+    "test": "vitest",
+    "lint:fix": "eslint ./src --fix && prettier --write .",
+    "lint": "eslint ./src && prettier --check .",
+    "dev": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "@types/command-line-args": "^5.2.3",
+    "@types/node": "^20.12.8",
+    "@typescript-eslint/parser": "^7.8.0",
+    "command-line-args": "^5.2.1",
+    "eslint": "^9.1.1",
+    "globals": "^15.1.0",
+    "prettier": "^3.2.5",
+    "tsc": "^2.0.4",
+    "tsc-watch": "^6.2.0",
+    "tsx": "^4.8.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0",
+    "vitest": "^1.5.3"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "fast-csv": "^5.0.1"
+  }
+}
