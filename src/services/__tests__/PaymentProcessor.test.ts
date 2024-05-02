@@ -19,19 +19,25 @@ describe('PaymentProcessor', () => {
 				123,
 				new Date('2019-01-12T00:00:00.000Z'),
 				900,
+				PaymentSource.card,
 				new Card(30, PaymentCardStatus.processed),
+				null,
 			),
 			new Payment(
 				123,
 				new Date('2019-02-10T00:00:00.000Z'),
 				900,
+				PaymentSource.card,
 				new Card(45, PaymentCardStatus.declined),
+				null,
 			),
 			new Payment(
 				456,
 				new Date('2019-01-20T00:00:00.000Z'),
 				4200,
+				PaymentSource.card,
 				new Card(10, PaymentCardStatus.processed),
+				null,
 			),
 		]);
 	});
@@ -52,19 +58,25 @@ describe('PaymentProcessor', () => {
 				123,
 				new Date('2019-01-12'),
 				100,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 			new Payment(
 				123,
 				new Date('2019-02-20'),
 				100,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.declined),
+				null,
 			),
 			new Payment(
 				345,
 				new Date('2019-02-27'),
 				100,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 		];
 
@@ -77,13 +89,17 @@ describe('PaymentProcessor', () => {
 				123,
 				new Date('2019-01-12'),
 				100,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 			new Payment(
 				345,
 				new Date('2019-02-27'),
 				100,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 		]);
 	});

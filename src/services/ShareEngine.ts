@@ -2,7 +2,10 @@ import { Payment } from '../models/Payment';
 import { ShareOrder } from '../models/ShareOrder';
 
 export class ShareEngine {
-	public generateShareOrders(sharePrice: number, payments: Array<Payment>): Array<ShareOrder> {
+	public generateShareOrders(
+		sharePrice: number,
+		payments: Array<Payment>,
+	): Array<ShareOrder> {
 		const shareOrders = Array<ShareOrder>();
 		const paymentsByCustomer = this.groupPaymentsByCustomer(payments);
 
@@ -20,12 +23,17 @@ export class ShareEngine {
 		return shareOrders;
 	}
 
-	private groupPaymentsByCustomer(payments: Array<Payment>): Map<number, Array<Payment>> {
+	private groupPaymentsByCustomer(
+		payments: Array<Payment>,
+	): Map<number, Array<Payment>> {
 		const paymentsByCustomer = new Map<number, Array<Payment>>();
 
 		payments.forEach((payment) => {
-			if(!paymentsByCustomer.has(payment.customerId)) {
-				paymentsByCustomer.set(payment.customerId, new Array<Payment>());
+			if (!paymentsByCustomer.has(payment.customerId)) {
+				paymentsByCustomer.set(
+					payment.customerId,
+					new Array<Payment>(),
+				);
 			}
 
 			paymentsByCustomer.get(payment.customerId)!.push(payment);

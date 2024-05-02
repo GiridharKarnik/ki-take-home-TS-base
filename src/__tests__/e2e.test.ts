@@ -28,4 +28,32 @@ describe('Payment processing and share order generation', () => {
 			},
 		]);
 	});
+
+	it('should be able to process bank transfers and generate share orders', async () => {
+		await simulatePlatform(
+			path.resolve(__dirname, './fixtures/bank_payments_mixed.csv'),
+			PaymentSource.bank,
+			1.2,
+		);
+
+		//? check the generated csv file
+		const generatedShareOrder = await readCsv(
+			'./data/processed/share_orders.csv',
+		);
+
+		expect(generatedShareOrder).toStrictEqual([
+			{
+				customer_id: '789',
+				shares: '735',
+			},
+			{
+				customer_id: '345',
+				shares: '490',
+			},
+			{
+				customer_id: '123',
+				shares: '245',
+			},
+		]);
+	});
 });

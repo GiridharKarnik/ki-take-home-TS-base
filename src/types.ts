@@ -16,3 +16,10 @@ export interface CardPaymentCsvRow {
 	card_id: string;
 	card_status: PaymentCardStatus;
 }
+
+export interface BankPaymentCsvRow {
+	customer_id: string;
+	date: string;
+	amount: string;
+	bank_account_id: string;
+}

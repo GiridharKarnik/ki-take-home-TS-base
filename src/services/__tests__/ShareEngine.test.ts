@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { ShareEngine } from 'src/services/ShareEngine';
 import { Payment } from 'src/models/Payment';
 import { Card } from 'src/models/Card';
-import { PaymentCardStatus } from 'src/types';
+import { PaymentCardStatus, PaymentSource } from 'src/types';
 
 describe('ShareEngine', () => {
 	it('should be able to generate shares orders for payments by different customers', () => {
@@ -12,13 +12,17 @@ describe('ShareEngine', () => {
 				456,
 				new Date('2019-01-12'),
 				900,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 			new Payment(
 				123,
 				new Date('2019-02-27'),
 				4200,
+				PaymentSource.card,
 				new Card(181, PaymentCardStatus.processed),
+				null,
 			),
 		];
 
@@ -40,13 +44,17 @@ describe('ShareEngine', () => {
 				123,
 				new Date('2019-01-12'),
 				900,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 			new Payment(
 				123,
 				new Date('2019-02-27'),
 				900,
+				PaymentSource.card,
 				new Card(919, PaymentCardStatus.processed),
+				null,
 			),
 		];
 
